@@ -21,7 +21,7 @@ from typing import Any, Dict, List, Set
 # === PATHS ===
 LAUNCHER_DB_PATH = os.path.expanduser(r"~\Documents\Paradox Interactive\Crusader Kings III\launcher-v2.sqlite")
 MODS_DIR_LOCAL = os.path.expanduser(r"~\Documents\Paradox Interactive\Crusader Kings III\mod")
-GAME_DIR = r"H:\SteamLibrary\steamapps\common\Crusader Kings III\game"
+GAME_DIR = r"E:\SteamLibrary\steamapps\common\Crusader Kings III\game"
 OUTPUT_LOG_FILE = "ck3_mod_conflicts_report.log"
 EXCEPTION_FILE = "CK3_conflicts_exception.txt"
 DEFINE_FILE = "CK3_define_files.txt"
@@ -667,8 +667,8 @@ def conflict_manager(mod_check):
             
             # fill database
             ext = os.path.splitext(file)[1][1:]
-            is_flat = rel_path in FLAT_CONFLICT_FILES or (len(keys)>0 and keys[0].startswith('{'))
-            add_conflict(ext, rel_path, conflict_counter, keys, mod_file, file, is_gfo, is_master, is_slave, is_flat)
+            is_flat = rel_path_buf in FLAT_CONFLICT_FILES or (len(keys)>0 and keys[0].startswith('{'))
+            add_conflict(ext, rel_path_buf, conflict_counter, keys, mod_file, file, is_gfo, is_master, is_slave, is_flat)
             
         if mod_to_add > 0:
             conflict_counter += 1  # Increment counter
